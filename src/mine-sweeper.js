@@ -23,9 +23,144 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function minesweeper(matrix) {
+  const result = []
+  for (let i = 0; i < matrix.length; i++) {
+    let row = []
+    for (let k = 0; k < matrix[i].length; k++) {
+      let count = 0
+      if (!i) {
+        if (!k) {
+          if (matrix[i][k + 1]) {
+            count++
+          }
+          if (matrix[i + 1][k]) {
+            count++
+          }
+          if (matrix[i + 1][k + 1]) {
+            count++
+          }
+        } else if (k == matrix[i].length - 1) {
+          if (matrix[i][k - 1]) {
+            count++
+          }
+          if (matrix[i + 1][k]) {
+            count++
+          }
+          if (matrix[i + 1][k - 1]) {
+            count++
+          }
+        } else {
+          if (matrix[i][k - 1]) {
+            count++
+          }
+          if (matrix[i][k + 1]) {
+            count++
+          }
+          if (matrix[i + 1][k - 1]) {
+            count++
+          }
+          if (matrix[i + 1][k + 1]) {
+            count++
+          }
+          if (matrix[i + 1][k]) {
+            count++
+          }
+        }
+      } else if (i == (matrix.length - 1)) {
+        if (!k) {
+          if (matrix[i][k + 1]) {
+            count++
+          }
+          if (matrix[i - 1][k]) {
+            count++
+          }
+          if (matrix[i - 1][k + 1]) {
+            count++
+          }
+        } else if (k == matrix[i].length - 1) {
+          if (matrix[i][k - 1]) {
+            count++
+          }
+          if (matrix[i - 1][k]) {
+            count++
+          }
+          if (matrix[i - 1][k - 1]) {
+            count++
+          }
+        } else {
+          if (matrix[i][k - 1]) {
+            count++
+          }
+          if (matrix[i][k + 1]) {
+            count++
+          }
+          if (matrix[i - 1][k - 1]) {
+            count++
+          }
+          if (matrix[i - 1][k + 1]) {
+            count++
+          }
+          if (matrix[i - 1][k]) {
+            count++
+          }
+        }
+      } else {
+        if (!k) {
+          if (matrix[i][k + 1]) {
+            count++
+          }
+          if (matrix[i - 1][k]) {
+            count++
+          }
+          if (matrix[i - 1][k + 1]) {
+            count++
+          }
+          if (matrix[i + 1][k]) {
+            count++
+          }
+          if (matrix[i + 1][k + 1]) {
+            count++
+          }
+        } else if (k == matrix[i].length - 1) {
+          if (matrix[i][k - 1]) {
+            count++
+          }
+          if (matrix[i - 1][k]) {
+            count++
+          }
+          if (matrix[i - 1][k - 1]) {
+            count++
+          }
+          if (matrix[i + 1][k]) {
+            count++
+          }
+          if (matrix[i + 1][k - 1]) {
+            count++
+          }
+        } else {
+          if (matrix[i][k - 1]) {
+            count++
+          }
+          if (matrix[i][k + 1]) {
+            count++
+          }
+          if (matrix[i - 1][k - 1]) {
+            count++
+          }
+          if (matrix[i - 1][k + 1]) {
+            count++
+          }
+          if (matrix[i - 1][k]) {
+            count++
+          }
+        }
+      }
+      row.push(count)
+    }
+    result.push(row)
+  }
+  return result
 }
 
 module.exports = {
